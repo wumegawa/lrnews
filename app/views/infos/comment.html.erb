@@ -1,10 +1,10 @@
-<%= form_for(@comments) do |f| %>
-  <% if @comments.errors.any? %>
+<%= form_for @comment, :url => 'create_comment', :method => :post do |f| %>
+  <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@comments.errors.count, "error") %> prohibited this info from being saved:</h2>
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this info from being saved:</h2>
 
       <ul>
-      <% @comments.errors.full_messages.each do |msg| %>
+      <% @comment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -19,7 +19,16 @@
     <%= f.label :body %><br />
     <%= f.text_field :body %>
   </div>
+  <div>
+    <%= f.hidden_field :parent_id, :value => @info.id %>
+  </div>
   <div class="actions" %>
     <%= f.submit %>
   </div>
+<% end %>
+ <% @info.comments.each do |comment| %>
+   <div>
+     <p><%= comment.from %>さん:</p><br />
+     <p><%= comment.body %><p><br />
+   </div>
 <% end %>

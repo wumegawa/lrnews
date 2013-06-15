@@ -1,6 +1,7 @@
 Lrnews::Application.routes.draw do
   resources :infos do
     get 'comment', :on => :member
+    post 'create_comment', :on => :member
   end
 
 

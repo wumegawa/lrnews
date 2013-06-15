@@ -83,6 +83,15 @@ class InfosController < ApplicationController
 
   def comment
     @info = Info.find(params[:id])
-    @comments = @info.comments.create()
+    @comment = Comment.new
+    @comments = @info.comments
+  end
+
+  def create_comment
+    @info = Info.find(params[:id])
+    comment = Comment.new(params[:comment])
+    @info.comments << comment
+    @info.save
+    redirect_to :back
   end
 end
