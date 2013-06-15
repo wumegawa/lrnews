@@ -1,7 +1,8 @@
 Lrnews::Application.routes.draw do
   resources :infos
 
-
+  root :to => 'infos#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
