@@ -80,4 +80,9 @@ class InfosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def comment
+    @info = Info.find(params[:id])
+    @comments = @info.comments.create()
+  end
 end
