@@ -1,29 +1,19 @@
-<h1>Listing infos</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Url</th>
-    <th>Text</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>infos list</h1>
+<p>
+  <%= link_to 'create new info', new_info_path %>
+</p>
 
 <% @infos.each do |info| %>
   <tr>
-    <td><%= info.title %></td>
-    <td><%= info.url %></td>
-    <td><%= info.text %></td>
-    <td><%= info.user %></td>
-    <td><%= link_to 'Show', info %></td>
-    <td><%= link_to 'Edit', edit_info_path(info) %></td>
-    <td><%= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= info.id %></td>
+    <% if info.url.size > 0  %>
+      <td><%= link_to info.title, info.url %></td>
+      <span>(<%= info.url %>)</span>
+    <% else %>
+      <td><%= link_to info.title, "/infos/#{info.id}" %></td>
+    <% end %>
+    <td><%= link_to 'discuss', "/infos/#{info.id}/comment" %></td>
   </tr>
+  </br>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Info', new_info_path %>

@@ -4,7 +4,8 @@ Lrnews::Application.routes.draw do
     post 'create_comment', :on => :member
   end
 
-
+  root :to => 'infos#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
