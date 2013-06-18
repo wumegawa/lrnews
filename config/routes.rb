@@ -2,6 +2,7 @@ Lrnews::Application.routes.draw do
   resources :infos do
     resources :comments do
       post "create_comment", :on => :collection
+      post "reply", :on => :collection
     end
   end
 

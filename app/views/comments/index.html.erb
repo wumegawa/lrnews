@@ -36,7 +36,7 @@
        <td>
 	 <span><%= comment.from %> <%= comment.created_at %></span><br />
 	 <span><%= comment.body %></span><br />
-	 <p><%= link_to "reply" %></p>
+	 <p><%= link_to "reply", "/infos/#{comment.info_id}/comments/#{comment.id}" %></p>
        </td>
      </tr><br />
    </table>
