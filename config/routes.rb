@@ -1,7 +1,8 @@
 Lrnews::Application.routes.draw do
   resources :infos do
-    get 'comment', :on => :member
-    post 'create_comment', :on => :member
+    resources :comments do
+      post "create_comment", :on => :collection
+    end
   end
 
   root :to => 'infos#index'

@@ -1,4 +1,7 @@
-<%= form_for @comment, :url => 'create_comment', :method => :post do |f| %>
+<h1><%= @info.title %></h1>
+<h3>created by <%= @info.user %> at <%= @info.created_at %> |
+ <%= @info.comments.count %> comments</h3>
+<%= form_for @comment, :url => 'comments/create_comment', :method => :post do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this info from being saved:</h2>
@@ -17,18 +20,25 @@
   </div>
   <div class="field">
     <%= f.label :body %><br />
-    <%= f.text_field :body %>
+    <%= f.text_area :body, :size => "60x6" %>
   </div>
   <div>
-    <%= f.hidden_field :parent_id, :value => @info.id %>
+    <%= f.hidden_field :info_id, :value => @info.id %>
   </div>
   <div class="actions" %>
     <%= f.submit %>
   </div>
 <% end %>
+<table class="comment">
  <% @info.comments.each do |comment| %>
-   <div>
-     <p><%= comment.from %>さん:</p><br />
-     <p><%= comment.body %><p><br />
-   </div>
+   <table>
+     <tr>
+       <td>
+	 <span><%= comment.from %> <%= comment.created_at %></span><br />
+	 <span><%= comment.body %></span><br />
+	 <p><%= link_to "reply" %></p>
+       </td>
+     </tr><br />
+   </table>
 <% end %>
+</table>
