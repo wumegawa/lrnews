@@ -1,4 +1,7 @@
 Lrnews::Application.routes.draw do
+  resources :users
+
+
   resources :infos
 
   root :to => 'infos#index'
