@@ -1,24 +1,25 @@
 <%= link_to "Lrnews", root_path, :class => 'brand' %>
 <ul class="nav">
   <li>
-  <%= link_to 'create', new_info_path %>
+  <%= link_to 'create', "infos/new" %>
   </li>
-  <% if true %>
+  <% if current_user %>
     <li>
-    <%= link_to('Logout', "#") %>
+    <%= link_to 'Logout', "/sessions/#{current_user.id}",
+      :confirm => 'are you sure?', :method => :delete %>
     </li>
   <% else %>
     <li>
-    <%= link_to('Login', "#")  %>
+    <%= link_to 'Login', "/sessions" %>
     </li>
   <% end %>
-  <% if false %>
+  <% if current_user %>
     <li>
-    <%= link_to('Edit account', "#") %>
+    <%= link_to 'Edit account', "/users/#{current_user.id}/edit" %>
     </li>
   <% else %>
     <li>
-    <%= link_to('Sign up', "#")  %>
+    <%= link_to 'Sign up', "/users/new"  %>
     </li>
   <% end %>
 </ul>
