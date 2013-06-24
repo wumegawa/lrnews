@@ -1,0 +1,24 @@
+<%= link_to "Lrnews", root_path, :class => 'brand' %>
+<ul class="nav">
+  <li>
+  <%= link_to 'create', new_info_path %>
+  </li>
+  <% if true %>
+    <li>
+    <%= link_to('Logout', "#") %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Login', "#")  %>
+    </li>
+  <% end %>
+  <% if false %>
+    <li>
+    <%= link_to('Edit account', "#") %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Sign up', "#")  %>
+    </li>
+  <% end %>
+</ul>

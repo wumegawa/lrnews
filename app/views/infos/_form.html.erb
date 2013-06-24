@@ -11,23 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_area :text %>
-  </div>
-  <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>
+          <%= f.label :title %>
+        </th>
+        <td>
+          <%= f.text_field :title %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%= f.label :url %>
+        </th>
+        <td>
+          <%= f.text_field :url %>
+        </td>
+      <tr>
+        <th>
+          <%= f.label :text %>
+        </th>
+        <td>
+          <%= f.text_area :text, rows: 6 %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%= f.label :user %>
+        </th>
+        <td>
+          <%= f.text_field :user %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%= f.submit class: "btn btn-inverse"%>
+        </th>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

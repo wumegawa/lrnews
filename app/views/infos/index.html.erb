@@ -1,19 +1,21 @@
-<h1>infos list</h1>
-<p>
-  <%= link_to 'create new info', new_info_path %>
-</p>
-
 <% @infos.each do |info| %>
   <tr>
-    <td><%= info.id %></td>
+    <td>
+      <%= info.id %>
+    </td>
     <% if info.url.size > 0  %>
-      <td><%= link_to info.title, info.url %></td>
+      <td>
+        <%= link_to info.title, info.url %>
+      </td>
       <span>(<%= info.url %>)</span>
     <% else %>
-      <td><%= link_to info.title, "/infos/#{info.id}" %></td>
+      <td>
+        <%= link_to info.title, "/infos/#{info.id}" %>
+      </td>
     <% end %>
-    <td><%= link_to 'discuss', "/infos/#{info.id}/comment" %></td>
+    <td>
+      <%= link_to 'discuss', "/infos/#{info.id}/comment" %>
+    </td>
   </tr>
   </br>
 <% end %>
-
