@@ -29,16 +29,4 @@
     <%= f.submit %>
   </div>
 <% end %>
-<table class="comment">
- <% @info.comments.each do |comment| %>
-   <table>
-     <tr>
-       <td>
-	 <span><%= comment.from %> <%= comment.created_at %></span><br />
-	 <span><%= comment.body %></span><br />
-	 <p><%= link_to "reply", "/infos/#{comment.info_id}/comments/#{comment.id}" %></p>
-       </td>
-     </tr><br />
-   </table>
-<% end %>
-</table>
+<%= render :partial => "comment", :collection => @comments %>

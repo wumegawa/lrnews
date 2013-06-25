@@ -1,0 +1,9 @@
+<ul>
+  <li><%= comment.from %> <%= comment.created_at %><br />
+  <%= comment.body %></li><br />
+      <p><%= link_to "reply", "/infos/#{comment.info_id}/comments/#{comment.id}" %></p>
+<% @comments = @info.comments.where("parent_id = ?", comment.id) %>
+<% if @comments %>
+  <%= render :partial => "comment", :collection => @comments %>
+<% end %>
+</ul>

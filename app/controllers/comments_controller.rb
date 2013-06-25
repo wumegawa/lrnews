@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def index
     @info = Info.find(params[:info_id])
     @comment = Comment.new
-    @comments = @info.comments
+    @comments = @info.comments.where(:parent_id => nil)
   end
 
   def create_comment
