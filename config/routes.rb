@@ -3,7 +3,12 @@ Lrnews::Application.routes.draw do
   
   resources :sessions
   
-  resources :infos
+  resources :infos do
+    resources :comments do
+      post "create_comment", :on => :collection
+      post "reply", :on => :collection
+    end
+  end
 
   root :to => 'infos#index'
   

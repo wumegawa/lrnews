@@ -1,0 +1,32 @@
+<h1><%= @info.title %></h1>
+<h3>created by <%= @info.user %> at <%= @info.created_at %> |
+ <%= @info.comments.count %> comments</h3>
+<%= form_for @comment, :url => 'comments/create_comment', :method => :post do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this info from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :from %><br />
+    <%= f.text_field :from %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body, :size => "60x6" %>
+  </div>
+  <div>
+    <%= f.hidden_field :info_id, :value => @info.id %>
+  </div>
+  <div class="actions" %>
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= render :partial => "comment", :collection => @comments %>

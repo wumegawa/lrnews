@@ -1,0 +1,18 @@
+<span><%= @comments.from %> <%= @comments.created_at %></span><br />
+<span><%= @comments.body %></span><br />
+<%= form_for @comment, :url => 'reply', :method => :post do |f| %>
+  <div class="field">
+    <%= f.label :from %><br />
+    <%= f.text_field :from %>
+  </div>
+  <div class="field">
+    <%= f.text_area :body, :size => "60x6" %>
+  </div>
+  <div class="hidden">
+    <%= f.hidden_field :parent_id, :value => @comments.id %>
+    <%= f.hidden_field :info_id, :value => @comments.info_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "reply" %>
+  </div>
+<% end %>
