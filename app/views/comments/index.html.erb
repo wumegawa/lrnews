@@ -26,8 +26,8 @@
     <%= f.hidden_field :info_id, :value => @info.id %>
   </div>
   <div class="actions" %>
-    <%= f.submit %>
+    <%= f.submit :comment, class: "btn btn-inverse"%>
   </div>
 <% end %>
 <%= render :partial => "comment", :collection => @comments %>
-`
+

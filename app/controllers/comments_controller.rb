@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate!, :only => [:create_comment, :show]
+  
   def index
     @info = Info.find(params[:info_id])
     @comment = Comment.new
