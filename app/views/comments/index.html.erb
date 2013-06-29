@@ -1,6 +1,8 @@
-<h1><%= @info.title %></h1>
-<h3>created by <%= @info.user %> at <%= @info.created_at.strftime("%Y-%m-%d %H:%M:%S") %> |
- <%= @info.comments.count %> comments</h3>
+<h4><%= @info.title %></h4>
+<h5>created by <%= @info.user %> at <%= @info.created_at.strftime("%Y-%m-%d %H:%M:%S") %> |
+ <%= @info.comments.count %> comments</h5>
+<b>Text</b><br />
+<p><%= @info.text %></p>
 <%= form_for @comment, :url => 'comments/create_comment', :method => :post do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
@@ -19,15 +21,15 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :comment %><br />
     <%= f.text_area :body, :size => "60x6" %>
   </div>
   <div>
     <%= f.hidden_field :info_id, :value => @info.id %>
   </div>
   <div class="actions" %>
-    <%= f.submit :comment, class: "btn btn-inverse"%>
+    <%= f.submit :comment, class: "btn" %>
   </div>
 <% end %>
+<%= link_to "back", root_path %>
 <%= render :partial => "comment", :collection => @comments %>
 
