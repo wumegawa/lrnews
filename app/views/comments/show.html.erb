@@ -6,7 +6,8 @@
   </tr>
   <tr>
     <td>
-      <%= @comments.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+      <%= @comments.created_at.strftime("%Y-%m-%d %H:%M:%S") %> |
+      <%= link_to "parent", "/infos/#{@comments.info_id}/comments/#{@comments.parent_id}" %>
     </td>
   </tr>
   <tr>
@@ -30,4 +31,9 @@
   <div class="actions">
     <%= f.submit "reply" %>
   </div>
+<% end %>
+
+<% @comments = Comment.where("parent_id = ?", @comments.id) %>
+<% if @comments %>
+  <%= render :partial => "comment", :collection => @comments %>
 <% end %>
