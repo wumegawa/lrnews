@@ -1,6 +1,6 @@
 <ul style="list-style:none">
   <li>
-    <%= comment.from %> <%= comment.created_at %><br />
+    <%= comment.from %> <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %><br />
     <%= comment.body %><br />
     <%= link_to "reply", "/infos/#{comment.info_id}/comments/#{comment.id}" %>
   </li>

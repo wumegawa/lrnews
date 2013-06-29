@@ -1,5 +1,5 @@
 <h1><%= @info.title %></h1>
-<h3>created by <%= @info.user %> at <%= @info.created_at %> |
+<h3>created by <%= @info.user %> at <%= @info.created_at.strftime("%Y-%m-%d %H:%M:%S") %> |
  <%= @info.comments.count %> comments</h3>
 <%= form_for @comment, :url => 'comments/create_comment', :method => :post do |f| %>
   <% if @comment.errors.any? %>
