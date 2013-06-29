@@ -1,30 +1,24 @@
-<h1>Log in</h1>
+<h4>Log in</h4>
 <%= form_tag sessions_path do %>
-  <table class: "table">
-    <tbody>
-      <tr>
-        <th>
-          <%= label_tag :name, 'login name' %>
-        </th>
-        <td>
+  <form class="form-horizontal">
+      <div>
+        <label>
+          <%= label_tag :name, 'User name' %>
+        </label>
+        <div>
           <%= text_field_tag :name, params[:name] %>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          <%= label_tag :password, 'password' %>
-        </th>
-        <td>
+        </div>
+      </div>
+      <div>
+        <label>
+          <%= label_tag :password, 'Password' %>
+        </label>
+        <div>
           <%= password_field_tag :password , params[:password]%>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          <%= submit_tag "login", class: "btn btn-inverse" %>
-        </th>
-        <td>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </div>
+        <div>
+          <%= submit_tag "login", class: "btn" %>
+        </div>
+      </div>
+  </form>
 <% end %>

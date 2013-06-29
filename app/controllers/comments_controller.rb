@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :authenticate!, :only => [:create_comment, :show]
+  before_filter :authenticate!, :only => [:create_comment, :show, :index]
   
   def index
     @info = Info.find(params[:info_id])

@@ -11,39 +11,35 @@
     </div>
   <% end %>
   
-  <table class: "table">
-    <tbody>
-      <tr>
-        <th>
+  <form>
+      <div>
+        <label>
           <%= f.label :name %>
-        </th>
-        <td>
+        </label>
+        <div>
           <%= f.text_field :name, size: 40 %>
-        </td>
-      </tr>
-      <tr>
-        <th>
+        </div>
+      </div>
+      <div>
+        <label>
           <%= f.label :password, 'password' %>
-        </th>
-        <td>
+        </label>
+        <div>
           <%= f.password_field :password, size: 40 %>
-        </td>
-      </tr>
-      <tr>
-        <th>
+        </div>
+      </div>
+      <div>
+        <label>
           <%= f.label :password_confirmation, 'password check' %>
-        </th>
-        <td>
+        </label>
+        <div>
           <%= f.password_field :password_confirmation, size: 40 %>
-        </td>
-      </tr> 
-      <tr>
-        <th>
-          <%= f.submit class: "btn btn-inverse" %>
-        </th>
-        <td>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </div>
+      </div> 
+      <div>
+        <div>
+          <%= f.submit :Create, class: "btn" %>
+        </div>
+      </div>
+  </form>
 <% end %>

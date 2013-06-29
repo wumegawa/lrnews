@@ -11,46 +11,40 @@
     </div>
   <% end %>
 
-  <table class: "table">
-    <tbody>
-      <tr>
-        <th>
+  <form>
+      <div>
+        <label>
           <%= f.label :title %>
-        </th>
-        <td>
+        </tlabel>
+        <div>
           <%= f.text_field :title %>
-        </td>
-      </tr>
-      <tr>
-        <th>
+        </div>
+      </div>
+      <div>
+        <label>
           <%= f.label :url %>
-        </th>
-        <td>
+        </label>
+        <div>
           <%= f.text_field :url %>
-        </td>
-      <tr>
-        <th>
+        </div>
+      </div>
+      <div>
+        <label>
           <%= f.label :text %>
-        </th>
-        <td>
+        </label>
+        <div>
           <%= f.text_area :text, rows: 6 %>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          <%= f.label :user %>
-        </th>
-        <td>
-          <%= f.text_field :user %>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          <%= f.submit class: "btn btn-inverse"%>
-        </th>
-        <td>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= f.hidden_field :from, value: current_user.name %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= f.submit class: "btn"%>
+        </div>
+      </div>
+  </form>
 <% end %>
