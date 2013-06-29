@@ -1,4 +1,5 @@
 class InfosController < ApplicationController
+  before_filter :authenticate!, :only => [:new]
   # GET /infos
   # GET /infos.json
   def index
