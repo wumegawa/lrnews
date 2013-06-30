@@ -1,0 +1,50 @@
+<%= form_for(@info) do |f| %>
+  <% if @info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@info.errors.count, "error") %> prohibited this info from being saved:</h2>
+
+      <ul>
+      <% @info.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <form>
+      <div>
+        <label>
+          <%= f.label :title %>
+        </tlabel>
+        <div>
+          <%= f.text_field :title %>
+        </div>
+      </div>
+      <div>
+        <label>
+          <%= f.label :url %>
+        </label>
+        <div>
+          <%= f.text_field :url %>
+        </div>
+      </div>
+      <div>
+        <label>
+          <%= f.label :text %>
+        </label>
+        <div>
+          <%= f.text_area :text, rows: 6 %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= f.hidden_field :user, value: current_user.name %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= f.submit class: "btn"%>
+        </div>
+      </div>
+  </form>
+<% end %>

@@ -1,0 +1,21 @@
+<% @infos.each do |info| %>
+  <tr>
+    <td>
+      <%= info.id %>
+    </td>
+    <% if info.url.size > 0  %>
+      <td>
+        <%= link_to info.title, info.url %>
+      </td>
+      <span>(<%= info.url %>)</span>
+    <% else %>
+      <td>
+        <%= link_to info.title, "/infos/#{info.id}/comments" %>
+      </td>
+    <% end %>
+    <td>
+      <%= link_to 'discuss', "/infos/#{info.id}/comments" %>
+    </td>
+  </tr>
+  </br>
+<% end %>

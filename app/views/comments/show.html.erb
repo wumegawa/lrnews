@@ -1,0 +1,39 @@
+<table>
+  <tr>
+    <td>
+      <%= @comments.from %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= @comments.created_at.strftime("%Y-%m-%d %H:%M:%S") %> |
+      <%= link_to "parent", "/infos/#{@comments.info_id}/comments/#{@comments.parent_id}" %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= @comments.body %>
+    </td>
+  </tr>
+  <tr>
+  </tr>
+</table>
+
+<%= form_for @comment, :url => 'reply', :method => :post do |f| %>
+  <div class="field">
+    <%= f.text_area :body, :size => "60x6" %>
+  </div>
+  <div class="hidden">
+    <%= f.hidden_field :parent_id, :value => @comments.id %>
+    <%= f.hidden_field :info_id, :value => @comments.info_id %>
+    <%= f.hidden_field :from, value: current_user.name %>
+  </div>
+  <div class="actions">
+    <%= f.submit "reply" %>
+  </div>
+<% end %>
+
+<% @comments = Comment.where("parent_id = ?", @comments.id) %>
+<% if @comments %>
+  <%= render :partial => "comment", :collection => @comments %>
+<% end %>

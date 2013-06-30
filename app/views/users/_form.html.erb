@@ -1,0 +1,45 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> 
+        prohibited this user from being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <form>
+      <div>
+        <label>
+          <%= f.label :name %>
+        </label>
+        <div>
+          <%= f.text_field :name, size: 40 %>
+        </div>
+      </div>
+      <div>
+        <label>
+          <%= f.label :password, 'password' %>
+        </label>
+        <div>
+          <%= f.password_field :password, size: 40 %>
+        </div>
+      </div>
+      <div>
+        <label>
+          <%= f.label :password_confirmation, 'password check' %>
+        </label>
+        <div>
+          <%= f.password_field :password_confirmation, size: 40 %>
+        </div>
+      </div> 
+      <div>
+        <div>
+          <%= f.submit :Create, class: "btn" %>
+        </div>
+      </div>
+  </form>
+<% end %>
